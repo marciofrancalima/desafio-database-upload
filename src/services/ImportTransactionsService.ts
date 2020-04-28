@@ -4,6 +4,7 @@ import { getRepository, In, getCustomRepository } from 'typeorm';
 
 import Category from '../models/Category';
 import Transaction from '../models/Transaction';
+
 import TransactionsRepository from '../repositories/TransactionsRepository';
 
 interface CSVTransaction {
@@ -72,7 +73,7 @@ class ImportTransactionsService {
         value: transaction.value,
         type: transaction.type,
         category: finalCategories.find(
-          category => category.title === transaction.title,
+          category => category.title === transaction.category,
         ),
       })),
     );
